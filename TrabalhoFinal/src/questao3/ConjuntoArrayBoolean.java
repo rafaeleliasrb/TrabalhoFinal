@@ -22,7 +22,7 @@ public class ConjuntoArrayBoolean implements IntegerSet {
 	public IntegerSet union(IntegerSet set) {
 		for(int i=0; i<sizeMax; i++) {
 			if(this.set[i]) {
-				set.add(this.set[i]);
+				set.add(i);
 			}
 		}
 		
@@ -33,8 +33,8 @@ public class ConjuntoArrayBoolean implements IntegerSet {
 	public IntegerSet intersection(IntegerSet set) {
 		IntegerSet intersectionSet = new IntegerSet();
 		for(int i=0; i<sizeMax; i++) {
-			if(!set.isBelongToSet(this.set[i])) {
-				this.set.remove(set[i]);
+			if(this.set[i] && !set.isBelongToSet(i)) {
+				this.set.remove(i);
 			}
 		}
 		return this.set;
@@ -44,8 +44,8 @@ public class ConjuntoArrayBoolean implements IntegerSet {
 	public IntegerSet diff(IntegerSet set) {
 		IntegerSet intersectionSet = new IntegerSet();
 		for(int i=0; i<sizeMax; i++) {
-			if(set.isBelongToSet(this.set[i])) {
-				this.set.remove(set[i]);
+			if(set.isBelongToSet(i)) {
+				this.set.remove(i);
 			}
 		}
 		return this.set;
