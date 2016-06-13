@@ -31,6 +31,12 @@ public interface IntegerSet {
 	 * @return {1, 2}  
 	 */ 
 	public IntegerSet diff(IntegerSet set);
+	
+	/**  
+	 * this = {1, 2, 3} e n = 2  
+	 * @return true 
+	 */
+	public boolean isBelongToSet(Integer n);
 }
 
 

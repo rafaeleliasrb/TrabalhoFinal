@@ -51,14 +51,34 @@ public class Conjunto implements IntegerSet {
 
 	@Override
 	public IntegerSet intersection(IntegerSet set) {
-		
-		return null;
+		IntegerSet intersectionSet = new IntegerSet();
+		for(int i=0; i<size; i++) {
+			if(set.isBelongToSet(this.set[i])) {
+				intersectionSet.add(set[i]);
+			}
+		}
+		return intersectionSet;
 	}
 
 	@Override
 	public IntegerSet diff(IntegerSet set) {
+		IntegerSet intersectionSet = new IntegerSet();
+		for(int i=0; i<size; i++) {
+			if(!set.isBelongToSet(this.set[i])) {
+				intersectionSet.add(set[i]);
+			}
+		}
+		return intersectionSet;
+	}
+	
+	@Override
+	public boolean isBelongToSet(Integer n) {
+		boolean retorno = false;
+		if(binarySearch(set, size-1, n) > -1) {
+			retorno = true;
+		}
 		
-		return null;
+		return retorno;
 	}
 
 	private Integer[] alteraTamanhoSet(Integer[] set, Integer novoTamanho) {
