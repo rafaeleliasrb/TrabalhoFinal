@@ -37,6 +37,11 @@ public interface IntegerSet {
 	 * @return true 
 	 */
 	public boolean isBelongToSet(Integer n);
+	
+	/**
+	 * Imprime os valores do IntegerSet
+	 */
+	public void imprimeIntegerSet();
 }
 
 

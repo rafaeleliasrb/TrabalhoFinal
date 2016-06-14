@@ -1,10 +1,8 @@
 package questao3;
 
-import java.math.BigDecimal;
+public class ConjuntoIntegerArray implements IntegerSet {
 
-public class Conjunto implements IntegerSet {
-
-	private Integer sizeMax = 2;
+	private Integer sizeMax = 100;
 	private Integer[] set = new Integer[sizeMax];
 	private Integer size = 0;
 	
@@ -42,19 +40,20 @@ public class Conjunto implements IntegerSet {
 
 	@Override
 	public IntegerSet union(IntegerSet set) {
+		IntegerSet unionSet = set.diff(this);
 		for(int i=0; i<size; i++) {
-			set.add(this.set[i]);
+			unionSet.add(this.set[i]);
 		}
 		
-		return set;
+		return unionSet;
 	}
 
 	@Override
 	public IntegerSet intersection(IntegerSet set) {
-		IntegerSet intersectionSet = new IntegerSet();
+		IntegerSet intersectionSet = new ConjuntoIntegerArray();
 		for(int i=0; i<size; i++) {
 			if(set.isBelongToSet(this.set[i])) {
-				intersectionSet.add(set[i]);
+				intersectionSet.add(this.set[i]);
 			}
 		}
 		return intersectionSet;
@@ -62,10 +61,10 @@ public class Conjunto implements IntegerSet {
 
 	@Override
 	public IntegerSet diff(IntegerSet set) {
-		IntegerSet intersectionSet = new IntegerSet();
+		IntegerSet intersectionSet = new ConjuntoIntegerArray();
 		for(int i=0; i<size; i++) {
 			if(!set.isBelongToSet(this.set[i])) {
-				intersectionSet.add(set[i]);
+				intersectionSet.add(this.set[i]);
 			}
 		}
 		return intersectionSet;
@@ -140,11 +139,13 @@ public class Conjunto implements IntegerSet {
 		return -1;
 	}
 	
-	public void imprimeConjunto() {
+	@Override
+	public void imprimeIntegerSet() {
 		System.out.printf("{ ");
 		for(int i=0; i<size; i++) {
 			System.out.printf(set[i].toString() + " ");
 		}
 		System.out.printf("}");
+		System.out.println();
 	}
 }

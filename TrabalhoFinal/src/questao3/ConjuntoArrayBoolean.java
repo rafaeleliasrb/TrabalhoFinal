@@ -1,7 +1,5 @@
 package questao3;
 
-import java.math.BigDecimal;
-
 public class ConjuntoArrayBoolean implements IntegerSet {
 
 	private Integer sizeMax = 100;
@@ -20,49 +18,56 @@ public class ConjuntoArrayBoolean implements IntegerSet {
 
 	@Override
 	public IntegerSet union(IntegerSet set) {
+		IntegerSet unionSet = set.diff(this);
 		for(int i=0; i<sizeMax; i++) {
-			if(this.set[i]) {
-				set.add(i);
+			if(this.set[i]!=null && this.set[i]) {
+				unionSet.add(i);
 			}
 		}
 		
-		return set;
+		return unionSet;
 	}
 
 	@Override
 	public IntegerSet intersection(IntegerSet set) {
-		IntegerSet intersectionSet = new IntegerSet();
+		IntegerSet intersectionSet = new ConjuntoArrayBoolean();
 		for(int i=0; i<sizeMax; i++) {
-			if(this.set[i] && !set.isBelongToSet(i)) {
-				this.set.remove(i);
+			if(this.set[i]!=null && this.set[i] && set.isBelongToSet(i)) {
+				intersectionSet.add(i);
 			}
 		}
-		return this.set;
+		return intersectionSet;
 	}
 
 	@Override
 	public IntegerSet diff(IntegerSet set) {
-		IntegerSet intersectionSet = new IntegerSet();
+		IntegerSet intersectionSet = new ConjuntoArrayBoolean();
 		for(int i=0; i<sizeMax; i++) {
-			if(set.isBelongToSet(i)) {
-				this.set.remove(i);
+			if(this.set[i]!=null && this.set[i] && !set.isBelongToSet(i)) {
+				intersectionSet.add(i);
 			}
 		}
-		return this.set;
+		return intersectionSet;
 	}
 	
 	@Override
 	public boolean isBelongToSet(Integer n) {
-		return set[n];
+		boolean retorno = false;
+		if(set[n]!=null) {
+			retorno = set[n];
+		}
+		return retorno;
 	}
 	
-	public void imprimeConjunto() {
+	@Override
+	public void imprimeIntegerSet() {
 		System.out.printf("{ ");
 		for(int i=0; i<sizeMax; i++) {
-			if(set[i]) {
-				System.out.printf(String.toString(i) + " ");
+			if(set[i]!=null && set[i]) {
+				System.out.printf(String.valueOf(i) + " ");
 			}
 		}
 		System.out.printf("}");
+		System.out.println();
 	}
 }
