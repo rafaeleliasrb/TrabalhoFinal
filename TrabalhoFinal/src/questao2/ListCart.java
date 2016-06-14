@@ -7,6 +7,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author RafaelElias
+ * ShoppingCart implementado com a classe List.
+ */
 public class ListCart implements ShoppingCart {
 
 	private List<Item> carrinho;

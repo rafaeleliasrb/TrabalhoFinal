@@ -1,18 +1,18 @@
 package questao3;
 
+/**
+ * @author RafaelElias
+ * IntegerSet utilizando um array de inteiros.
+ */
 public class ConjuntoIntegerArray implements IntegerSet {
 
-	private Integer sizeMax = 100;
+	private Integer sizeMax = 101;
 	private Integer[] set = new Integer[sizeMax];
 	private Integer size = 0;
 	
 	@Override
 	public void add(Integer n) {
 		if(size==0 || binarySearch(set, size-1, n) == -1) {
-			if(size == sizeMax) {
-				set = alteraTamanhoSet(set, sizeMax*2);
-				sizeMax *= 2;
-			}
 			set[size++] = n;
 		}
 		quickSort(set, 0, size-1);
@@ -30,10 +30,6 @@ public class ConjuntoIntegerArray implements IntegerSet {
 				}
 				
 				size--;
-				if(size == sizeMax/2) {
-					set = alteraTamanhoSet(set, sizeMax/2);
-					sizeMax /= 2; 
-				}
 			}
 		}	
 	}
@@ -79,17 +75,23 @@ public class ConjuntoIntegerArray implements IntegerSet {
 		
 		return retorno;
 	}
-
-	private Integer[] alteraTamanhoSet(Integer[] set, Integer novoTamanho) {
-		Integer[] setAux = set;
-		set = new Integer[novoTamanho];
+	
+	@Override
+	public void imprimeIntegerSet() {
+		System.out.printf("{ ");
 		for(int i=0; i<size; i++) {
-			set[i] = setAux[i];
+			System.out.printf(set[i].toString() + " ");
 		}
-		
-		return set;
+		System.out.printf("}");
+		System.out.println();
 	}
 	
+	/**
+	 * Método de ordenação usando o algoritmo quickSort.
+	 * @param array
+	 * @param inicio
+	 * @param fim
+	 */
 	private void quickSort(Integer[] array, int inicio, int fim) {
         int i = inicio;
         int j = fim;
@@ -118,6 +120,13 @@ public class ConjuntoIntegerArray implements IntegerSet {
             quickSort(array, i, fim);
     }
 
+	/**
+	 * Método de busca usando o algoritimo de buscaBinaria.
+	 * @param array
+	 * @param size
+	 * @param valor
+	 * @return o valor encontrado ou -1, caso não tenha sido encontrado
+	 */
 	private int binarySearch(Integer[] array, int size, int valor) {
 		int inicio = 0;
 		int fim = size;
@@ -139,13 +148,4 @@ public class ConjuntoIntegerArray implements IntegerSet {
 		return -1;
 	}
 	
-	@Override
-	public void imprimeIntegerSet() {
-		System.out.printf("{ ");
-		for(int i=0; i<size; i++) {
-			System.out.printf(set[i].toString() + " ");
-		}
-		System.out.printf("}");
-		System.out.println();
-	}
 }

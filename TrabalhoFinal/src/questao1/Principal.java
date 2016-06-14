@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author RafaelElias
+ * Classe para testtar o funcionamento do Bingo.
+ */
 public class Principal {
 
 	public static void main(String[] args) {

@@ -1,10 +1,13 @@
 package questao3;
 
+/**
+ * @author RafaelElias
+ * IntegerSet utilizando um array de boleanos para simular os inteiros de 0 a 100. 
+ */
 public class ConjuntoArrayBoolean implements IntegerSet {
 
-	private Integer sizeMax = 100;
+	private Integer sizeMax = 101;
 	private Boolean[] set = new Boolean[sizeMax];
-	//private Integer size = 0;
 	
 	@Override
 	public void add(Integer n) {

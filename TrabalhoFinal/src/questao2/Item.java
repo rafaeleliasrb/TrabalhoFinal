@@ -1,5 +1,9 @@
 package questao2;
 
+/**
+ * @author RafaelElias
+ * Classe que simula um Item de um Carrinho de compras.
+ */
 public class Item {
 
 	private Product product;

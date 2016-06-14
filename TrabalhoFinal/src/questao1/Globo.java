@@ -2,6 +2,10 @@ package questao1;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author RafaelElias
+ * Simula o Globo do Bingo.
+ */
 public class Globo {
 
 	private List<Integer> bolas;
@@ -13,6 +17,10 @@ public class Globo {
 		}
 	}
 	
+	/**
+	 * Sorteia um número ainda não sorteado.
+	 * @return número sorteado
+	 */
 	public Integer sorteiaNumero() {
 		Integer numeroSorteado = GeradorNumeroUtil.geraNumeroRandom();
 		while(verificaBolaJaSorteada(numeroSorteado)) {
@@ -22,6 +30,11 @@ public class Globo {
 		return numeroSorteado;
 	}
 	
+	/**
+	 * Verifica de o @param já foi sorteado.
+	 * @param bolaSorteada
+	 * @return se já foi sorteado
+	 */
 	private Boolean verificaBolaJaSorteada(Integer bolaSorteada) {
 		Boolean retorno;
 		if(bolas.contains(bolaSorteada)) {

@@ -1,5 +1,9 @@
 package questao3;
 
+/**
+ * @author RafaelElias
+ * Classe para simular o funcionamento do IntegerSet. 
+ */
 public class Principal {
 
 	public static void main(String[] args) {

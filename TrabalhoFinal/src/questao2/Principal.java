@@ -3,6 +3,10 @@ package questao2;
 import java.util.Collection;
 import java.util.Iterator;
 
+/**
+ * @author RafaelElias
+ * Classe para testar o funcionamento de um Carrinho de compras.
+ */
 public class Principal {
 
 	public static void main(String[] args) {

@@ -2,9 +2,14 @@ package questao1;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author RafaelElias
+ * Classe que simula um Bingo.
+ */
 public class Bingo {
 
-	private static int NUMERO_DE_CARTELAS = Integer.MAX_VALUE;
+	//Número máximo de cartelas é o resultado da combinação 99 escolhe 20
+	private static int NUMERO_DE_CARTELAS = 100;
 	private Globo globo;
 	private List<Cartela> cartelas;
 	private List<Integer> numerosSorteados;
@@ -18,6 +23,10 @@ public class Bingo {
 		}
 	}
 	
+	/**
+	 * Sorteia um número e marca nas cartelas do Bingo
+	 * @return número sorteado
+	 */
 	public Integer sortearNumero() {
 		Integer numeroSorteado = globo.sorteiaNumero();
 		numerosSorteados.add(numeroSorteado);
@@ -29,6 +38,10 @@ public class Bingo {
 		return numeroSorteado;
 	}
 	
+	/**
+	 * Lista as Cartelas que venceram o Bingo.
+	 * @return lista de Cartelas
+	 */
 	public List<Cartela> cartelasVencedoras() {
 		List<Cartela> cartelasVencedoras = new ArrayList<>();
 		for(Cartela cartela : cartelas) {

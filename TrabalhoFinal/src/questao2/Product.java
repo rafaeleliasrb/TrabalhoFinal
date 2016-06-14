@@ -1,5 +1,9 @@
 package questao2;
 
+/**
+ * @author RafaelElias
+ * Classe que simula um Produto de um Item de um Carrihno de compras.
+ */
 public class Product {
 
 	private Integer id;
@@ -31,5 +35,4 @@ public class Product {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
 }

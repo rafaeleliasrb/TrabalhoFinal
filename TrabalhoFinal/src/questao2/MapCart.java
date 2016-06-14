@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @author RafaelElias
+ * ShoppingCart implementado com a classe Map.
+ */
 public class MapCart implements ShoppingCart {
 
 	Map<Integer, Item> carrinho;
